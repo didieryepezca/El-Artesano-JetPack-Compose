@@ -25,11 +25,12 @@ fun RoundedButton(
             modifier = modifier.width(280.dp).height(50.dp),
             onClick = onClick,
             shape = RoundedCornerShape(50),
+
         ) {
             Text(
                 text = text,
                 style = MaterialTheme.typography.h6.copy(
-                    color = Color.White
+                    color = Color.Black
                 )
             )
         }

@@ -34,8 +34,10 @@ import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
 import com.example.elartesano.R
 import com.example.elartesano.navigation.AppScreens
+import com.example.elartesano.presentation.login.components.GoogleButton
 import com.example.elartesano.presentation.login.components.RoundedButton
 import com.example.elartesano.presentation.login.components.TransparentTextField
+import com.example.elartesano.ui.theme.ElArtesanoTheme
 
 @Composable
 fun AutenticarseCliente(navController: NavController){
@@ -44,6 +46,8 @@ fun AutenticarseCliente(navController: NavController){
     val passwordValue = rememberSaveable{ mutableStateOf("") }
     var passwordVisibility by remember { mutableStateOf(false) }
     val focusManager = LocalFocusManager.current
+
+    var isLoading by remember { mutableStateOf(false) }
 
     Box(
         modifier = Modifier
@@ -90,14 +94,6 @@ fun AutenticarseCliente(navController: NavController){
                             text = "Hola Cliente!",
                             style = MaterialTheme.typography.h4.copy(
                                 fontWeight = FontWeight.Medium
-                            ),
-                            fontFamily = FontFamily(Font(R.font.sansita_bold)),
-                        )
-
-                        Text(
-                            text = "Logeate con tu cuenta",
-                            style = MaterialTheme.typography.h5.copy(
-                                color = MaterialTheme.colors.primary
                             ),
                             fontFamily = FontFamily(Font(R.font.sansita_bold)),
                         )
@@ -169,18 +165,43 @@ fun AutenticarseCliente(navController: NavController){
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.spacedBy(8.dp)
                         ) {
-                            RoundedButton(
-                                text = "Entrar",
-                                displayProgressBar = false,
-                                onClick = {
-                                    // TODO("LOGIN")
+
+                            Row(modifier = Modifier
+                                .background(MaterialTheme.colors.background)
+                                .padding(8.dp)) {
+
+                                RoundedButton(
+                                    modifier = Modifier.width(140.dp),
+                                    text = "Entrar",
+                                    displayProgressBar = false,
+                                    onClick = {
+                                        // TODO("LOGIN")
+                                    }
+                                )
+
+                                Spacer(modifier = Modifier.width(16.dp))
+
+                                Button(
+                                    modifier = Modifier.width(140.dp),
+                                    colors = ButtonDefaults.buttonColors(
+                                        backgroundColor = Color.White
+                                    ),
+                                    onClick = {
+                                        // TODO("LOGIN")
+                                    }){
+                                    Text(text = "Registrar",
+                                            style = MaterialTheme.typography.h6.copy(color = Color.Black)
+                                    )
                                 }
-                            )
+                            }
+
+                            GoogleButton(onClicked = {
+                                //navController.popBackStack()
+                            })
 
                             ClickableText(
                                 text = buildAnnotatedString {
                                     append("¿Olvidaste tu Contraseña?")
-
                                     withStyle(
                                         style = SpanStyle(
                                             color = MaterialTheme.colors.primary,
@@ -193,11 +214,12 @@ fun AutenticarseCliente(navController: NavController){
                             ){
                                 // TODO("NAVIGATE TO FORGET PASSWORD")
                                 navController.navigate(route = AppScreens.UsuarioSendMailRecovery.route)
+                                }
+
                             }
                         }
                     }
                 }
-
                 /*FloatingActionButton(
                     modifier = Modifier
                         .size(72.dp)
@@ -219,4 +241,3 @@ fun AutenticarseCliente(navController: NavController){
         }
     }
 
-}
