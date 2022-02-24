@@ -38,7 +38,7 @@ fun ElArtesanoTheme(darkTheme: Boolean = isSystemInDarkTheme(), content: @Compos
 
     MaterialTheme(
         colors = colors,
-        typography = Typography,
+        //typography = Typography, //No funciona obtener las fuentes desde Type.kt
         shapes = Shapes,
         content = content
     )

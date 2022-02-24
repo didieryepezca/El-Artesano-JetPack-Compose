@@ -30,11 +30,11 @@ fun SplashScreen(navController: NavController){
     LaunchedEffect(key1 = true){
 
         escala.animateTo(
-            targetValue = 0.6f,
+            targetValue = 1.0f,
             animationSpec = tween(
                 durationMillis = 800,
                 easing = {
-                    OvershootInterpolator(4f).getInterpolation(it)
+                    OvershootInterpolator(6f).getInterpolation(it)
                 }
             )
         )
@@ -62,7 +62,5 @@ fun SplashScreen(navController: NavController){
                 .height(750.dp)
                 .scale(escala.value)
         )
-
-
     }
 }

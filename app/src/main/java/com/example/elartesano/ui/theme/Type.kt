@@ -17,8 +17,8 @@ val Sansita = FontFamily(
     Font(R.font.sansita_extrabold, FontWeight.ExtraBold),
     Font(R.font.sansita_extrabolditalic, FontWeight.ExtraBold, FontStyle.Italic),
     Font(R.font.sansita_italic, FontWeight.Normal, FontStyle.Italic),
-    Font(R.font.sansita_regular, FontWeight.Normal),
-    Font(R.font.sansita_slack, FontWeight.Normal)
+    Font(R.font.sansita_regular,FontWeight.Normal),
+    Font(R.font.sansita_slack, FontWeight.Bold)
 )
 
 // Set of Material typography styles to start with
@@ -27,7 +27,8 @@ val Typography = Typography(
         fontFamily = Sansita,
         fontWeight = FontWeight.Light,
         fontSize = 82.sp
-    ),
+    )
+    ,
     h2 = TextStyle(
         fontFamily = Sansita,
         fontWeight = FontWeight.Light,

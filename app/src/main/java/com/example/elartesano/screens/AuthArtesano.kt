@@ -9,7 +9,6 @@ import androidx.compose.foundation.text.KeyboardActions
 
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowForward
 import androidx.compose.material.icons.filled.Visibility
 import androidx.compose.material.icons.filled.VisibilityOff
 
@@ -25,17 +24,21 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
-import androidx.compose.ui.text.style.TextAlign
+
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
 
 import androidx.constraintlayout.compose.ConstraintLayout
 import androidx.navigation.NavController
+import com.example.elartesano.R
+import com.example.elartesano.navigation.AppScreens
 import com.example.elartesano.presentation.login.components.RoundedButton
 import com.example.elartesano.presentation.login.components.TransparentTextField
 
@@ -56,7 +59,10 @@ fun AutenticarseArtesano(navController: NavController){
         Image(
             painter = painterResource(com.example.elartesano.R.drawable.artesano_logo_big),
             contentDescription = "Login Image",
-            contentScale = ContentScale.Inside
+            contentScale = ContentScale.Inside,
+            /*modifier = Modifier
+                .align(Alignment.Center)
+                .padding(bottom = 260.dp)*/
         )
 
         Box(
@@ -70,7 +76,7 @@ fun AutenticarseArtesano(navController: NavController){
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .height(400.dp)
+                        .height(380.dp)
                         .constrainAs(surface) {
                             bottom.linkTo(parent.bottom)
                         },
@@ -90,14 +96,16 @@ fun AutenticarseArtesano(navController: NavController){
                             text = "Hola de nuevo!",
                             style = MaterialTheme.typography.h4.copy(
                                 fontWeight = FontWeight.Medium
-                            )
+                            ),
+                            fontFamily = FontFamily(Font(R.font.sansita_bold)),
                         )
 
                         Text(
                             text = "Logeate con tu cuenta",
                             style = MaterialTheme.typography.h5.copy(
                                 color = MaterialTheme.colors.primary
-                            )
+                            ),
+                            fontFamily = FontFamily(Font(R.font.sansita_bold)),
                         )
 
                         Column(
@@ -154,12 +162,12 @@ fun AutenticarseArtesano(navController: NavController){
                                 }
                             )
 
-                            Text(
+                            /*Text(
                                 modifier = Modifier.fillMaxWidth(),
                                 text = "¿Olvidaste tu Contraseña?",
                                 style = MaterialTheme.typography.body1,
                                 textAlign = TextAlign.End
-                            )
+                            )*/
                         }
 
                         Column(
@@ -177,7 +185,7 @@ fun AutenticarseArtesano(navController: NavController){
 
                             ClickableText(
                                 text = buildAnnotatedString {
-                                    append("No tienes una Cuenta?")
+                                    append("¿Olvidaste tu Contraseña?")
 
                                     withStyle(
                                         style = SpanStyle(
@@ -185,17 +193,18 @@ fun AutenticarseArtesano(navController: NavController){
                                             fontWeight = FontWeight.Bold
                                         )
                                     ){
-                                        append("Sign up")
+                                        append("Recuperar")
                                     }
                                 }
                             ){
-                                // TODO("NAVIGATE TO REGISTER SCREEN")
+                                // TODO("NAVIGATE TO FORGET PASSWORD")
+                                navController.navigate(route = AppScreens.UsuarioSendMailRecovery.route)
                             }
                         }
                     }
                 }
 
-                FloatingActionButton(
+                /*FloatingActionButton(
                     modifier = Modifier
                         .size(72.dp)
                         .constrainAs(fab) {
@@ -211,7 +220,7 @@ fun AutenticarseArtesano(navController: NavController){
                         contentDescription = "Forward Icon",
                         tint = Color.White
                     )
-                }
+                }*/
             }
         }
     }

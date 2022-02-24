@@ -6,7 +6,7 @@ sealed class AppScreens(val route: String){
     object MainScreen: AppScreens("main_screen")
     object AuthArtesano: AppScreens("auth_artesano")
     object AuthCliente: AppScreens("auth_cliente")
-
+    object UsuarioSendMailRecovery: AppScreens("usuario_password_recovery")
 
 
 }

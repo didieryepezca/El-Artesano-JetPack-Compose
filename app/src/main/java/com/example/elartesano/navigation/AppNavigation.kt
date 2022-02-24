@@ -4,10 +4,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.elartesano.screens.AutenticarseArtesano
-import com.example.elartesano.screens.AutenticarseCliente
-import com.example.elartesano.screens.MainScreen
-import com.example.elartesano.screens.SplashScreen
+import com.example.elartesano.screens.*
 
 @Composable
 fun AppNavigation(){
@@ -24,6 +21,9 @@ fun AppNavigation(){
         }
         composable(route = AppScreens.AuthCliente.route){
             AutenticarseCliente(navController)
+        }
+        composable(route = AppScreens.UsuarioSendMailRecovery.route){
+            UsuarioSendMailRecoveryContraseña(navController)
         }
     }
 

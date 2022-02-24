@@ -18,6 +18,7 @@ import androidx.navigation.NavController
 
 import com.example.elartesano.R
 import com.example.elartesano.navigation.AppScreens
+import com.example.elartesano.ui.theme.Sansita
 
 
 @Composable
@@ -33,6 +34,7 @@ fun MainScreen(navController: NavController){
                                 fontWeight = FontWeight.Bold
                                 ),
             fontFamily = FontFamily(Font(R.font.sansita_bold)),
+            //fontFamily = Sansita, fontWeight = FontWeight.Bold,
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 140.dp, start = 55.dp, end = 55.dp))
@@ -44,6 +46,7 @@ fun MainScreen(navController: NavController){
                 fontSize = 22.sp
             ),
             fontFamily = FontFamily(Font(R.font.sansita_regular)),
+            //fontFamily = Sansita, fontWeight = FontWeight.Normal,
             modifier = Modifier
                 .align(Alignment.TopCenter)
                 .padding(top = 360.dp, start = 5.dp, end = 5.dp))
